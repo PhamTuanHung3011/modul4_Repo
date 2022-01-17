@@ -1,0 +1,71 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<button><a href="/create">Create</a></button>-->
+<!--<table border="1">-->
+<!--    <tr>-->
+<!--        <th>#</th>-->
+<!--        <th>Name</th>-->
+<!--        <th>Age</th>-->
+<!--        <th>Img</th>-->
+<!--        <th>Class</th>-->
+<!--    </tr>-->
+<!--    <tr th:each="s,loop :${students}">-->
+<!--        <td th:text="${loop.count}"></td>-->
+<!--        <td th:text="${s.name}"></td>-->
+<!--        <td th:text="${s.age}"></td>-->
+<!--        <td > <img th:src="${s.img}" height="150" width="200"></td>-->
+<!--        <td th:text="${s.classRoom.name}"></td>-->
+<!--    </tr>-->
+<!--</table>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" enctype="multipart/form-data">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Show Student ech' i</h2>
+    <p>This is web Victoria's Secret:</p>
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Img</th>
+            <th>Class</th>
+            <th colspan="2">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="s,loop :${students}">
+            <td th:text="${loop.count}"></td>
+            <td th:text="${s.name}"></td>
+            <td th:text="${s.age}"></td>
+            <td > <img th:src="${s.img}" height="250" width="200" style="text-align: center"></td>
+            <td th:text="${s.classRoom.name}"></td>
+            <td><a th:href="@{/delete/(id=${s.id})}">Delete</a></td>
+            <td><a th:href="@{/edit/(id=${s.id})}"> Edit</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/create"> Create</a>
+</div>
+
+</body>
+</html>
